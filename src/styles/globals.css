@@ -97,24 +97,11 @@ body {
   ;
 }
 /* Top Navigation */
-.top-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 0;
-}
-
 .search-box {
   width: 100%;
   padding: 16px;
   background-color: #ffffff;
   border-radius: 28px;
-}
-
-.top-icons {
-  display: flex;
-  gap: 15px;
-  align-items: center;
 }
 
 /* Overview Section */
@@ -137,20 +124,22 @@ body {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-.balance {
+.activeCard {
   background: #4b49ac;
   color: #fff;
 }
-.saving {
-  background: #f8d7da;
-  color: #000;
-  border: 2px solid red;
+.card-top{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #c8c2c2;
 }
-.expenses {
-  background: #fff3cd;
-}
-.incomes {
-  background: #c3e6cb;
+.card-bottom{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 24px;
 }
 
 /* Analytics Section */
@@ -167,10 +156,47 @@ body {
 }
 
 /* Right Sidebar */
+
+.top-icons {
+  display: flex;
+  justify-content: space-between;
+  /* gap: 15px; */
+  align-items: center;
+  width: 100%;
+  padding: 8px;
+  background-color: #ffffff;
+  border-radius: 28px;
+}
+.top-icons button {
+  border: 1px solid #DEDEDE;
+  padding: 8px 16px;
+  border-radius: 40%;
+  cursor: pointer;
+}
 .right-sidebar {
   width: 400px;
   padding: 20px;
-  background: #f8f8f8;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  /* background: #f8f8f8; */
+}
+.profile{
+display: flex;
+align-items: center;
+gap: 8px;
+}
+
+.profilePic{
+  background: #d9d9d9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  padding: 8px;
+  border: 1px #d9d9d9;
+  border-style: double;
+  border-radius: 100%;
 }
 
 .saving-plan,
