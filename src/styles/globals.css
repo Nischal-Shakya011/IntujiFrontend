@@ -256,6 +256,7 @@
   background-size: 12px;
 }
 
+/* responsive */
 @media screen and (max-width: 1030px) {
   .dashboard {
     display: flex;
