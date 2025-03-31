@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function RightSidebar() {
-  
   const savingData = [
     {
       id: 0,
@@ -182,42 +181,31 @@ export default function RightSidebar() {
             {savingData?.map((item, index) => (
               <div key={item?.id} className="flex flex-col gap-4">
                 <div className="flex justify-between">
-                  <h4 class="text-md">{item?.name}</h4>
-                  <p class="text-xs text-gray-500">{item?.subname}</p>
+                  <h4 className="text-md">{item?.name}</h4>
+                  <p className="text-xs text-gray-500">{item?.subname}</p>
                 </div>
-                <div class="flex justify-between items-center mt-1">
-                  <p class="text-xl font-bold">
+                <div className="flex justify-between items-center mt-1">
+                  <p className="text-xl font-bold">
                     {item?.upperAmount}{" "}
-                    <span class="text-gray-500 text-sm">
+                    <span className="text-gray-500 text-sm">
                       / {item?.lowerAmount}
                     </span>
                   </p>
-                  <span class={`text-[${item?.color}] font-bold`}>
+                  <span className={`font-bold`} style={{ color: item?.color }}>
                     {item?.percentage}%
                   </span>
                 </div>
-                <div class="w-full bg-gray-300 h-2 rounded-lg mt-1">
+                <div className="w-full bg-gray-300 h-2 rounded-lg mt-1">
                   <div
-                    class={`h-2 bg-[${item?.color}] rounded-lg w-[${item?.percentage}%]`}
+                    className="h-2 rounded-lg"
+                    style={{
+                      backgroundColor: item?.color,
+                      width: `${item?.percentage}%`,
+                    }}
                   ></div>
                 </div>
               </div>
             ))}
-            {/* <div className="flex flex-col gap-3">
-              <div className="flex justify-between">
-                <h4 class="font-semibold">Bali Vacation</h4>
-                <p class="text-xs text-gray-500">Target: August 25 2022</p>
-              </div>
-              <div class="flex justify-between items-center mt-1">
-                <p class="text-xl font-bold">
-                  $1950,21 <span class="text-gray-500 text-sm">/ $4000</span>
-                </p>
-                <span class="text-[#3BBB6E] font-bold">48%</span>
-              </div>
-              <div class="w-full bg-gray-300 h-2 rounded-lg mt-1">
-                <div class="h-2 bg-[#F9BA33] rounded-lg w-[48%]"></div>
-              </div>
-            </div> */}
           </div>
         </div>
 
