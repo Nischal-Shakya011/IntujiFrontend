@@ -1,6 +1,64 @@
 import React from "react";
 
 export default function RightSidebar() {
+  
+  const savingData = [
+    {
+      id: 0,
+      name: "Bali Vacation",
+      subname: "Target: August 25 2022",
+      upperAmount: "$1950,21",
+      lowerAmount: "$4000",
+      percentage: 48,
+      color: "#4745A4",
+    },
+    {
+      id: 1,
+      name: "New Gadget",
+      subname: "Target: August 25 2022",
+      upperAmount: "$790,21",
+      lowerAmount: "$1000",
+      percentage: 79,
+      color: "#F9BA33",
+    },
+    {
+      id: 2,
+      name: "Charity",
+      subname: "Target: August 25 2022",
+      upperAmount: "$32,111",
+      lowerAmount: "$100",
+      percentage: 32,
+      color: "#3BBB6E",
+    },
+  ];
+
+  const transactionData = [
+    {
+      id: 0,
+      name: "Figma",
+      subname: "August 20, 2022",
+      amount: "$100",
+    },
+    {
+      id: 1,
+      name: "Youtube",
+      subname: "August 20, 2022",
+      amount: "$120",
+    },
+    {
+      id: 2,
+      name: "Spotify",
+      subname: "August 20, 2022",
+      amount: "$15",
+    },
+    {
+      id: 3,
+      name: "Freepik",
+      subname: "August 20, 2022",
+      amount: "$300",
+    },
+  ];
+
   return (
     <>
       <aside class="right-sidebar">
@@ -110,18 +168,107 @@ export default function RightSidebar() {
             </svg>
           </div>
         </div>
+        {/* <!-- Saving Plan --> */}
+        <div class="saving">
+          <div>
+            <h3 class="text-xl font-semibold">Saving Plan</h3>
+            <a href="#" class="text-[#4745A4] text-lg font-normal">
+              See All
+            </a>
+          </div>
 
-        <div class="saving-plan">
-          <h3>Saving Plan</h3>
-          <p>Bali Vacation: $1950 / $4000</p>
-          <p>New Gadget: $790 / $1000</p>
-          <p>Charity: $32,111 / $100</p>
+          <div className="flex flex-col gap-5">
+            {/* <!-- Bali Vacation --> */}
+            {savingData?.map((item, index) => (
+              <div key={item?.id} className="flex flex-col gap-4">
+                <div className="flex justify-between">
+                  <h4 class="text-md">{item?.name}</h4>
+                  <p class="text-xs text-gray-500">{item?.subname}</p>
+                </div>
+                <div class="flex justify-between items-center mt-1">
+                  <p class="text-xl font-bold">
+                    {item?.upperAmount}{" "}
+                    <span class="text-gray-500 text-sm">
+                      / {item?.lowerAmount}
+                    </span>
+                  </p>
+                  <span class={`text-[${item?.color}] font-bold`}>
+                    {item?.percentage}%
+                  </span>
+                </div>
+                <div class="w-full bg-gray-300 h-2 rounded-lg mt-1">
+                  <div
+                    class={`h-2 bg-[${item?.color}] rounded-lg w-[${item?.percentage}%]`}
+                  ></div>
+                </div>
+              </div>
+            ))}
+            {/* <div className="flex flex-col gap-3">
+              <div className="flex justify-between">
+                <h4 class="font-semibold">Bali Vacation</h4>
+                <p class="text-xs text-gray-500">Target: August 25 2022</p>
+              </div>
+              <div class="flex justify-between items-center mt-1">
+                <p class="text-xl font-bold">
+                  $1950,21 <span class="text-gray-500 text-sm">/ $4000</span>
+                </p>
+                <span class="text-[#3BBB6E] font-bold">48%</span>
+              </div>
+              <div class="w-full bg-gray-300 h-2 rounded-lg mt-1">
+                <div class="h-2 bg-[#F9BA33] rounded-lg w-[48%]"></div>
+              </div>
+            </div> */}
+          </div>
         </div>
-        <div class="recent-transactions">
-          <h3>Recent Transactions</h3>
-          <p>Figma - $100</p>
-          <p>Youtube - $120</p>
-          <p>Spotify - $15</p>
+
+        <div class="transaction">
+          <div>
+            <h3 class="text-xl font-semibold">Recent Transaction</h3>
+            <a href="#" class="text-[#4745A4] text-lg font-normal">
+              See All
+            </a>
+          </div>
+
+          <div className="flex flex-col gap-8">
+            {/* <!-- Recent Transaction --> */}
+            {transactionData?.map((item, index) => (
+              <div key={item?.id} className="flex justify-between">
+                <div className="flex gap-4 align-center w-[75%]">
+                  <div class="transactionPic">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2.5798 19.01L2.5598 19.03C2.2898 18.44 2.1198 17.77 2.0498 17.03C2.1198 17.76 2.3098 18.42 2.5798 19.01Z"
+                        fill="#292D32"
+                      />
+                      <path
+                        d="M9.00012 10.38C10.3146 10.38 11.3801 9.31443 11.3801 8C11.3801 6.68556 10.3146 5.62 9.00012 5.62C7.68568 5.62 6.62012 6.68556 6.62012 8C6.62012 9.31443 7.68568 10.38 9.00012 10.38Z"
+                        fill="#292D32"
+                      />
+                      <path
+                        d="M16.19 2H7.81C4.17 2 2 4.17 2 7.81V16.19C2 17.28 2.19 18.23 2.56 19.03C3.42 20.93 5.26 22 7.81 22H16.19C19.83 22 22 19.83 22 16.19V13.9V7.81C22 4.17 19.83 2 16.19 2ZM20.37 12.5C19.59 11.83 18.33 11.83 17.55 12.5L13.39 16.07C12.61 16.74 11.35 16.74 10.57 16.07L10.23 15.79C9.52 15.17 8.39 15.11 7.59 15.65L3.85 18.16C3.63 17.6 3.5 16.95 3.5 16.19V7.81C3.5 4.99 4.99 3.5 7.81 3.5H16.19C19.01 3.5 20.5 4.99 20.5 7.81V12.61L20.37 12.5Z"
+                        fill="#292D32"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="text-md font-semibold">{item?.name}</p>
+                    <p class="text-xs text-gray-500">{item?.subname}</p>
+                  </div>
+                </div>
+
+                <div className="w-[25%]">
+                  <p class="text-lg font-bold">{item?.amount}</p>
+                  <p className="text-sm text-[#3BBB6E]">Completed</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </aside>
     </>

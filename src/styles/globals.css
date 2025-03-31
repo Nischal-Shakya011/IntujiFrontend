@@ -1,31 +1,5 @@
 @import "tailwindcss";
 
-/* :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-} */
-
-/* Reset Styles */
 * {
   margin: 0;
   padding: 0;
@@ -36,8 +10,8 @@ body {
 /* Dashboard Layout */
 .dashboard {
   display: flex;
-  gap: 32px;
-  height: 100vh;
+  gap: 24px;
+  /* height: 100vh; */
   background: #f1f1f1;
 }
 
@@ -94,7 +68,6 @@ body {
   gap: 24px;
   padding: 20px;
   background: #f1f1f1;
-  ;
 }
 /* Top Navigation */
 .search-box {
@@ -105,7 +78,7 @@ body {
 }
 
 /* Overview Section */
-.over-container{
+.over-container {
   background-color: #ffffff;
   padding: 24px;
   border-radius: 14px;
@@ -128,14 +101,14 @@ body {
   background: #4b49ac;
   color: #fff;
 }
-.card-top{
+.card-top {
   display: flex;
   align-items: center;
   gap: 12px;
   padding-bottom: 24px;
   border-bottom: 1px solid #c8c2c2;
 }
-.card-bottom{
+.card-bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -144,15 +117,14 @@ body {
 
 /* Analytics Section */
 .analytics {
-  margin-top: 20px;
+  margin-top: 15px;
+  background-color: #ffffff;
+  padding: 18px;
+  border-radius: 14px;
 }
 
-.chart-placeholder {
-  background: #f1f1f1;
-  height: 200px;
-  border-radius: 10px;
-  text-align: center;
-  line-height: 200px;
+.analytics > div:first-child {
+  padding-bottom: 8px;
 }
 
 /* Right Sidebar */
@@ -168,26 +140,77 @@ body {
   border-radius: 28px;
 }
 .top-icons button {
-  border: 1px solid #DEDEDE;
+  border: 1px solid #dedede;
   padding: 8px 16px;
   border-radius: 40%;
   cursor: pointer;
 }
 .right-sidebar {
-  width: 400px;
-  padding: 20px;
+  width: 420px;
+  padding: 20px 20px 20px 0;
   display: flex;
   flex-direction: column;
   gap: 24px;
   /* background: #f8f8f8; */
 }
-.profile{
-display: flex;
-align-items: center;
-gap: 8px;
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.profilePic{
+.profilePic {
+  background: #d9d9d9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  padding: 8px;
+  border: 1px #d9d9d9;
+  border-style: double;
+  border-radius: 100%;
+}
+.saving {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  background: white;
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+}
+
+.saving > div:first-child {
+  padding-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #dfdbdb;
+}
+
+.transaction {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  background: white;
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+}
+
+.transaction > div:first-child {
+  padding-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #dfdbdb;
+}
+
+.transactionPic {
+  height: 50px;
+  width: 50px;
   background: #d9d9d9;
   display: flex;
   justify-content: center;
@@ -199,11 +222,24 @@ gap: 8px;
   border-radius: 100%;
 }
 
-.saving-plan,
-.recent-transactions {
-  background: white;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  margin-bottom: 15px;
+.dropdown-container {
+  display: inline-block;
+  position: relative;
+}
+
+.dropdown {
+  appearance: none;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 120px;
+  text-align: center;
+  /* arrow */
+  background-image: url('data:image/svg+xml;utf8,<svg width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.54134 0.0825195L4.50047 3.12339L1.45959 0.0825195L0.458008 1.0841L4.50047 5.12656L8.54292 1.0841L7.54134 0.0825195Z" fill="%230D163A"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
 }

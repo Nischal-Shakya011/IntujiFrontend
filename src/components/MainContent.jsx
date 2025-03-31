@@ -1,12 +1,29 @@
 import React from "react";
-// import OverView from "./OverView";
+import { Line } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  LineElement,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  Legend,
+  Tooltip,
+} from "chart.js";
+ChartJS.register(
+  LineElement,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  Legend,
+  Tooltip
+);
 
 export default function MainContent() {
   const values = [
     {
       id: 0,
       title: "Your Balance",
-      subtitle: "15 % compared with last month",
+      subtitle: "15% compared with last month",
       amount: "$28,891.138",
       firstIcon: (
         <svg
@@ -103,7 +120,7 @@ export default function MainContent() {
     {
       id: 1,
       title: "Saving",
-      subtitle: "10 % compared with last month",
+      subtitle: "10% compared with last month",
       amount: "$1,050.44",
       firstIcon: (
         <svg
@@ -189,7 +206,7 @@ export default function MainContent() {
     {
       id: 2,
       title: "Expenses",
-      subtitle: "2 % compared with last montg",
+      subtitle: "2% compared with last montg",
       amount: "$200.31",
       firstIcon: (
         <svg
@@ -275,7 +292,7 @@ export default function MainContent() {
     {
       id: 3,
       title: "Incomes",
-      subtitle: "8 % compared with last month",
+      subtitle: "8% compared with last month",
       amount: "$28,891.138",
       firstIcon: (
         <svg
@@ -352,6 +369,49 @@ export default function MainContent() {
       ),
     },
   ];
+
+  const data = {
+    labels: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+    datasets: [
+      {
+        label: "Label 1",
+        data: [12000, 14000, 8000, 15000, 10000, 20000, 18000],
+        borderColor: "#4745A4",
+        backgroundColor: "#4745A4",
+        fill: true,
+        tension: 0.4,
+      },
+      {
+        label: "Label 2",
+        data: [6000, 8000, 5000, 10000, 7000, 12000, 9000],
+        borderColor: "#F9BA33",
+        backgroundColor: "#F9BA33",
+        fill: true,
+        tension: 0.4,
+      },
+    ],
+  };
+
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        display: false,
+        position: "top",
+      },
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: {
+          callback: function (value) {
+            return value >= 1000 ? value / 1000 + "K" : value;
+          },
+        },
+      },
+    },
+  };
+
   return (
     <>
       <main class="main-content">
@@ -368,7 +428,6 @@ export default function MainContent() {
                 className={`card balance ${index == 0 ? "activeCard" : ""}`}
                 key={item?.id}
               >
-                {/* <div className="flex items-center gap-2 border-b border-gray-200 py-4"> */}
                 <div className="card-top">
                   <div>{item?.firstIcon}</div>
                   <div>
@@ -379,7 +438,7 @@ export default function MainContent() {
                     >
                       {item?.title}
                     </div>
-                    <div className="flex gap-2 items-center">
+                    <div className="flex gap-1 items-center">
                       <span>{item?.secondIcon}</span>
                       <span
                         className={`text-sm text-${
@@ -409,9 +468,47 @@ export default function MainContent() {
         </section>
 
         {/* <!-- Analytics Section --> */}
-        <section class="analytics">
-          <h3>Analytics</h3>
-          {/* <div class="chart-placeholder">[Chart will be here]</div> */}
+        <section className="analytics">
+          <div className="flex justify-between">
+            <h3 className="text-xl font-bold">Analytics</h3>
+            <div className="flex gap-4">
+              <div className="flex gap-2 items-center">
+                <div className="h-[12px] w-[12px] bg-[#4745A4] rounded-full"></div>
+                <p>Label1</p>
+              </div>
+              <div className="flex gap-2 items-center">
+                <div className="h-[12px] w-[12px] bg-[#F9BA33] rounded-full"></div>
+                <p>Label2</p>
+              </div>
+
+              <div class="dropdown-container">
+                <select class="dropdown">
+                  <option value="weekly" selected>
+                    Weekly
+                  </option>
+                  <option value="daily">Daily</option>
+                  <option value="monthly">Monthly</option>
+                  <div>
+                    <svg
+                      width="9"
+                      height="6"
+                      viewBox="0 0 9 6"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M7.54134 0.0825195L4.50047 3.12339L1.45959 0.0825195L0.458008 1.0841L4.50047 5.12656L8.54292 1.0841L7.54134 0.0825195Z"
+                        fill="#0D163A"
+                      />
+                    </svg>
+                  </div>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div>
+            <Line data={data} options={options} />
+          </div>
         </section>
       </main>
     </>
