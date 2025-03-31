@@ -441,9 +441,8 @@ export default function MainContent() {
                     <div className="flex gap-1 items-center">
                       <span>{item?.secondIcon}</span>
                       <span
-                        className={`text-sm text-${
-                          index == 0 ? "[#d9d9d9]" : "[#0D163A]"
-                        }`}
+                        className={`text-sm`}
+                        style={{ color: index == 0 ? "#bebfc2" : "#0D163A" }}
                       >
                         {" "}
                         {item?.subtitle}
