@@ -24,6 +24,14 @@
   flex-direction: column;
   justify-content: space-between;
 }
+.resSidebar{
+  width: 100%;
+  background: #ffffff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
 .logo {
   background: #d9d9d9;
@@ -33,7 +41,7 @@
   padding: 15px;
   margin-bottom: 20px;
 }
-.nav{
+.nav {
   padding: 32px 0;
 }
 
@@ -149,7 +157,7 @@
   cursor: pointer;
 }
 .right-sidebar {
-  width: 420px;
+  width: 400px;
   padding: 20px 20px 20px 0;
   display: flex;
   flex-direction: column;
@@ -246,4 +254,38 @@
   background-repeat: no-repeat;
   background-position: right 10px center;
   background-size: 12px;
+}
+
+@media screen and (max-width: 1030px) {
+  .dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    /* height: 100vh; */
+    background: #f1f1f1;
+  }
+  .sidebar {
+    width: 100%;
+    background: #ffffff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .main-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 20px;
+    background: #f1f1f1;
+  }
+  .right-sidebar {
+    width: 100%;
+    padding: 20px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    background: #f1f1f1;
+  }
 }

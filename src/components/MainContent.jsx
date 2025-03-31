@@ -422,7 +422,8 @@ export default function MainContent() {
         {/* <OverView /> */}
         <section className="over-container">
           <h3 className="text-xl font-bold">Overview</h3>
-          <div className="overview">
+          <div class="flex flex-col lg:grid lg:grid-cols-2 gap-5" style={{marginTop:"14px"}}>
+          {/* <div class="overview"> */}
             {values?.map((item, index) => (
               <div
                 className={`card balance ${index == 0 ? "activeCard" : ""}`}
@@ -468,9 +469,9 @@ export default function MainContent() {
 
         {/* <!-- Analytics Section --> */}
         <section className="analytics">
-          <div className="flex justify-between">
+          <div className="flex flex-col lg:flex-row gap-4 md:justify-between">
             <h3 className="text-xl font-bold">Analytics</h3>
-            <div className="flex gap-4">
+            <div className="flex flex-col md:flex-row gap-4">
               <div className="flex gap-2 items-center">
                 <div className="h-[12px] w-[12px] bg-[#4745A4] rounded-full"></div>
                 <p>Label1</p>
