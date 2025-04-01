@@ -12,7 +12,14 @@ export default function SideBar() {
     <>
       <aside class={`sidebar ${menuOpen ? "open" : ""}`}>
         <div>
-        <div className={`menu-close  pt-2 ${menuOpen? 'open':''} cursor-pointer`} onClick={handleMenuToggle}><IoMdClose className='inline text-red-600 font-bold text-3xl' /></div>
+          <div
+            className={`menu-close  pt-2 ${
+              menuOpen ? "open" : ""
+            } cursor-pointer`}
+            onClick={handleMenuToggle}
+          >
+            <IoMdClose className="inline text-red-600 font-bold text-3xl" />
+          </div>
           <div class="logo">
             <svg
               width="24"

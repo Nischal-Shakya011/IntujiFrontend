@@ -422,8 +422,11 @@ export default function MainContent() {
         {/* <OverView /> */}
         <section className="over-container">
           <h3 className="text-xl font-bold">Overview</h3>
-          <div class="flex flex-col lg:grid lg:grid-cols-2 gap-5" style={{marginTop:"14px"}}>
-          {/* <div class="overview"> */}
+          <div
+            class="flex flex-col lg:grid lg:grid-cols-2 gap-5"
+            style={{ marginTop: "14px" }}
+          >
+            {/* <div class="overview"> */}
             {values?.map((item, index) => (
               <div
                 className={`card balance ${index == 0 ? "activeCard" : ""}`}

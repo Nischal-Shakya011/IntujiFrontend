@@ -258,7 +258,7 @@
 .menu-icon {
   display: none;
 }
-.menu-close{
+.menu-close {
   display: none;
 }
 
@@ -271,7 +271,7 @@
     /* height: 100vh; */
     background: #f1f1f1;
   }
-  .sidebar{
+  .sidebar {
     display: none;
   }
   .sidebar.open {
@@ -305,10 +305,10 @@
     padding: 8px;
     cursor: pointer;
   }
-  .menu-icon.open{
+  .menu-icon.open {
     display: none;
   }
-  .menu-close.open{
+  .menu-close.open {
     display: flex;
     align-items: center;
     justify-content: end;
