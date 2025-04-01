@@ -1,10 +1,18 @@
 import React from "react";
+import { useState } from "react";
+import { IoMdMenu } from "react-icons/io";
+import { IoMdClose } from "react-icons/io";
 
 export default function SideBar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const handleMenuToggle = () => {
+    setMenuOpen(!menuOpen);
+  };
   return (
     <>
-      <aside class="sidebar">
+      <aside class={`sidebar ${menuOpen ? "open" : ""}`}>
         <div>
+        <div className={`menu-close  pt-2 ${menuOpen? 'open':''} cursor-pointer`} onClick={handleMenuToggle}><IoMdClose className='inline text-red-600 font-bold text-3xl' /></div>
           <div class="logo">
             <svg
               width="24"
@@ -345,6 +353,12 @@ export default function SideBar() {
           </li>
         </ul>
       </aside>
+      <div
+        className={`menu-icon  pt-2 ${menuOpen ? "open" : ""} cursor-pointer`}
+        onClick={handleMenuToggle}
+      >
+        <IoMdMenu className="inline text-[#4b49ac] font-bold text-4xl" />
+      </div>
     </>
   );
 }
